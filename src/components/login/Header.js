@@ -1,4 +1,4 @@
-import { View, Text ,Image, StyleSheet} from 'react-native'
+ import { View, Text ,Image, StyleSheet} from 'react-native'
 import React from 'react'
 import * as Font from 'expo-font';
 export default function Header() {
@@ -15,8 +15,8 @@ export default function Header() {
 const styles = StyleSheet.create({
     bgColor:{
         backgroundColor: '#eeb838',
-        paddingTop: 100,
-        paddingBottom: 100,
+        paddingTop: 60,
+        paddingBottom: 60,
     },  
     container :{
         flexDirection: 'column',
@@ -25,19 +25,18 @@ const styles = StyleSheet.create({
         // backgroundColor: '#f1ff00',
     },
     image:{
-        position: 'absolute',
         width :250,
         height: 50,
     },
     headerText:{
+        marginTop: 40,
         color: 'black',
         fontWeight: 'bold',
-        fontSize: 40,
-        fontFamily: 
+        fontSize: 30,
     },
     headerTextP: {
         color: '#a4a4a4',
         fontWeight: 'bold',
-        fontSize: 30,
+        fontSize: 20,
     }
 })
