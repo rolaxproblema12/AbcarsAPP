@@ -1,12 +1,14 @@
-import { View, Text,StyleSheet, SafeAreaView } from 'react-native'
+import { View, Text,StyleSheet, SafeAreaView,Image } from 'react-native'
 import React from 'react'
 import Button from './buttons/Button'
 
-export default function Body() {
+export default function Body(props) {
+    const {navigation} = props;
 return (
     <SafeAreaView style= {styles.container}>
-        <Button text={'Ingresar Automovil'}/>
-        <Button text={'Salida de Automovil'}/>
+        <Image style={styles.img} source={require('../../assets/abcars.png')}></Image>
+        <Button text={'Ingresar Automovil'} navigation= {navigation}/>
+        <Button text={'Salida de Automovil'} navigation={navigation}/>
     </SafeAreaView>
 )
 }
@@ -15,5 +17,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
+        
+    },
+    img: {
+        width:'100%', height:'100%',
+        top: 120,
+        left:  2,
+        right: 2,
+        position: 'absolute',
+        opacity:0.2
     }
 })

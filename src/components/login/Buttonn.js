@@ -6,7 +6,7 @@ export default function Button(props) {
     console.log(props)
     const {navigation} = props;
     const gotoPage = () =>{
-        navigation.navigate("Menu");
+        navigation.navigate("NavigationQr");
         console.log("hello");
     }
 return (

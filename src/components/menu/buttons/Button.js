@@ -2,10 +2,11 @@ import { View, Text,StyleSheet,Image,TouchableWithoutFeedback} from 'react-nativ
 import React from 'react'
 
 export default function Button(props) {
-const {text} = props;
+const {text,navigation} = props;
 // console.log(image)
 const oppenCamera = () => {
-    console.log('hello world')
+    navigation.navigate('ScaanQr')
+
 }
     return (
     <TouchableWithoutFeedback  onPress={oppenCamera}>
@@ -21,8 +22,8 @@ const oppenCamera = () => {
 const styles = StyleSheet.create({
     buttonBg: {
         // backgroundColor: 'black',
-        marginTop: 50,
-        marginBottom :  10,
+        marginTop: '40%',
+        marginBottom :  '40%',
         marginEnd:10,
         marginLeft: 10,
         height: 150,

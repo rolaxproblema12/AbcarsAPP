@@ -3,13 +3,16 @@ import React from 'react'
 import Header from '../components/menu/Header'
 import Body from '../components/menu/Body'
 import Footer from '../components/menu/Footer'
+import Navigation from '../navigation/NavigationQr'
+import { NavigationContainer } from '@react-navigation/native'
 
 
-export default function Menu() {
+export default function Menu(props) {
+const {navigation} = props;
 return (
     <SafeAreaView>
         <Header></Header>
-        <Body></Body>
+        <Body navigation={navigation}></Body>
         <Footer></Footer>
     </SafeAreaView>
 )
