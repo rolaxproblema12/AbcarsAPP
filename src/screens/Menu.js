@@ -3,8 +3,8 @@ import React from 'react'
 import Header from '../components/menu/Header'
 import Body from '../components/menu/Body'
 import Footer from '../components/menu/Footer'
-import Navigation from '../navigation/NavigationQr'
-import { NavigationContainer } from '@react-navigation/native'
+// import Navigation from '../navigation/NavigationQr'
+// import { NavigationContainer } from '@react-navigation/native'
 
 
 export default function Menu(props) {
