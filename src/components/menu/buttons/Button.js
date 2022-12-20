@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     textButton:{
         color: 'black',
         fontWeight: 'bold',
-        fontSize:30,
+        fontSize:20,
         textAlign: 'center',
     },
     img: {

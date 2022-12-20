@@ -13,7 +13,7 @@ return (
     <SafeAreaView>
         <Header></Header>
         <Body navigation={navigation}></Body>
-        <Footer></Footer>
+        <Footer navigation={navigation}></Footer>
     </SafeAreaView>
 )
 }
