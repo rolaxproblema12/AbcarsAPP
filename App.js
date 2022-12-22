@@ -5,8 +5,11 @@ import { StyleSheet, Text, View } from 'react-native';
 // import Menu from './src/screens/Menu';
 import { NavigationContainer } from '@react-navigation/native';
 import Navigation from './src/navigation/Navigation';
+import { useEffect } from 'react';
+import { db, initDataBase} from './src/utils/db';
 
 export default function App() {
+  initDataBase();
   return (
     <NavigationContainer>
       {/* <Login></Login> */}

@@ -1,12 +1,55 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, Button } from 'react-native';
+import { Text, View, StyleSheet, Button, Alert } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import {postVehicles} from '../api/vehicles';
+import { getDbConnection, getTasks, insertQr } from '../utils/db';
 
 export default function App() {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
+  function createQr(name){
+    console.log(name)
+    if(name === " "){
+      Alert.alert(
+        'Succes',
+        'Automovil Ingresado Correctamente',[
+          {
+            text:'Ok',
 
+          }
+        ]
+      )
+    }
+    try{
+      const db = getDbConnection();
+      console.log(db)
+      console.log(name)
+      insertQr(db,name);
+      Alert.alert(
+        'Succes',
+        'Automovil ingresado Correctamente',[
+          {
+            text:'Ok',
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel"
+          }
+        ]
+      )
+      getTasks(db); 
+    }catch(e){
+      Alert.alert(
+        'Succes',
+        'Hubo un error',[
+          {
+            text:'Ok',
+            onPress: () => console.log('Rolix',e),
+            style: "cancel"
+          }
+        ]
+      )
+    }
+
+  }
   useEffect(() => {
     const getBarCodeScannerPermissions = async () => {
       const { status } = await BarCodeScanner.requestPermissionsAsync();
@@ -15,16 +58,18 @@ export default function App() {
 
     getBarCodeScannerPermissions();
   }, []);
-  const cargeVehicles = async(value) => {
+  const cargeVehicles = (value) => {
     try {
-      const response = await postVehicles(value);
-      console.log(response);
-    } catch (e){console.log(e);}}
+      // const response = await postVehicles(value);
+      createQr(value);
+      console.log(value)
+      // console.log(response);
+    } catch (e){console.log('error al cargar vehiculo funcion cargeVehicles',e);}}
   
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
     // console.log(type);
-    console.log(data);
+    // console.log(typeof(data));
     cargeVehicles(data);
   };
 
