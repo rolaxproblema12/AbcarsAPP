@@ -8,7 +8,7 @@ export default function App() {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
   function createQr(name){
-    console.log(name)
+
     if(name === " "){
       Alert.alert(
         'Succes',
@@ -22,8 +22,8 @@ export default function App() {
     }
     try{
       const db = getDbConnection();
-      console.log(db)
-      console.log(name)
+      // console.log(db)
+      // console.log(name)
       insertQr(db,name);
       Alert.alert(
         'Succes',

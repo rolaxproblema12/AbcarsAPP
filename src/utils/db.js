@@ -52,13 +52,14 @@ export function initDataBase(){
     // db.close();
 
 }
-export async function insertQr(db, name){
+export function insertQr(db, name){
     try{
         // const insertQuery = `INSERT INTO vehicle_location(name) values ('${name}')`;
-        // return db.executeSql(insertQuery);
+        // return db.executeSql(insertQuery);}
+        console.log('Hola desde insett',name)
+        // console.log(db)
         db.transaction(tx=>{
-            tx.executeSql('INSERT INTO location_vehicles(name) values (?)',[name],
-            (txObj,error) => console.log(error))
+            tx.executeSql('INSERT INTO location_vehicles(name) VALUES (?)',[name]);
         });
         console.log('registro creado')
     }catch(e){
@@ -68,11 +69,11 @@ export async function insertQr(db, name){
 }
 export function getTasks(db){
     const qrs = [];
+    console.log("Hola desde Qr optiencion",db)
     // const results = db.executeSql('SELECT id, name FROM vehicle_Location');
-    const results = db.transaction(tx =>{
-        tx.executeSql('SELECT name FROM location_vehicles', null,
-            (txObj, ResultSet) => qrs.push(ResultSet.rows.item),
-            (txObj,error) => console.log(error)
+    db.transaction(tx =>{
+        tx.executeSql('SELECT name FROM location_vehicles', [],(_,{rows}) =>
+            console.log(JSON.stringify(rows))
         );
     })
     // results.forEach(function(ResultSet){
