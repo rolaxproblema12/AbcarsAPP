@@ -7,7 +7,7 @@ import { getDbConnection, getTasks, insertQr } from '../utils/db';
 export default function App() {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
-  function createQr(name){
+  async function createQr(name){
 
     if(name === " "){
       Alert.alert(
@@ -35,7 +35,6 @@ export default function App() {
           }
         ]
       )
-      getTasks(db); 
     }catch(e){
       Alert.alert(
         'Succes',
