@@ -10,11 +10,15 @@ export default function AutosAlmacen() {
   },[])
   const db = getDbConnection()
   const loadVehicles = async () =>{
-
+    const vehicles = []
     try{
-      getTasks(db).then((datos)=>{console.log(datos)})
+      getTasks(db).then((datos)=>{
+        JSON.parse(datos)._array.map(name=>vehicles.push(name))
+        console.log(vehicles.map(name => name.name))
+
+        /*console.log( JSON.parse(datos)._array[0].name)*/})
       // const response = await getVehicles()
-      console.log(response)
+      // console.log(response)
     }catch(error){
       // console.error(error)
     }
