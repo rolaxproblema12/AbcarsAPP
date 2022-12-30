@@ -2,8 +2,10 @@ import { View, Text,StyleSheet, SafeAreaView,Image } from 'react-native'
 import React from 'react'
 import Button from './buttons/Button'
 
+
 export default function Body(props) {
     const {navigation} = props;
+
 return (
     <SafeAreaView style= {styles.container}>
         <Image style={styles.img} source={require('../../assets/abcars.png')}></Image>

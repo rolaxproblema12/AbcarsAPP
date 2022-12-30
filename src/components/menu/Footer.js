@@ -1,8 +1,9 @@
 import { View, Text, StyleSheet, TouchableWithoutFeedback} from 'react-native'
 import React from 'react'
-
+import { information } from '../../utils/information';
 export default function Footer(props) {
   const {navigation} = props;
+  const datos = information();
   // console.log(navigation)
   // console.log(props);
   const moveTo = () =>{

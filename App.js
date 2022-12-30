@@ -8,8 +8,10 @@ import Navigation from './src/navigation/Navigation';
 import { useEffect } from 'react';
 import { db, initDataBase} from './src/utils/db';
 
+
 export default function App() {
   initDataBase();
+
   return (
     <NavigationContainer>
       {/* <Login></Login> */}
