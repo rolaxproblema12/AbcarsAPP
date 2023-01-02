@@ -35,7 +35,7 @@ export function createTables(db){
     useEffect(()=>{
     try{
         db.transaction(tx =>{
-            tx.executeSql('CREATE TABLE IF NOT EXISTS location_vehicles(id INTEGER PRIMARY KEY AUTOINCREMENT , name TEXT)')
+            tx.executeSql('CREATE TABLE IF NOT EXISTS location_vehicles(id INTEGER PRIMARY KEY AUTOINCREMENT , name TEXT, name_guard TEXT, mileage number, reception number, vehicle_id number)')
         });
         console.log('creada')
     }catch(e){
